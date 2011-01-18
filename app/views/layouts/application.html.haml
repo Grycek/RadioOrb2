@@ -1,0 +1,37 @@
+%html
+  %head
+    %title
+      RadioOrb
+    = stylesheet_link_tag :all
+    = javascript_include_tag "jquery.min", "jquery-ui.min", "application"
+    -# = stylesheet_link_tag "http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.2/themes/redmond/jquery-ui.css", "application"
+    -# = javascript_include_tag "http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js", "http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.1/jquery-ui.min.js", "application"
+    = csrf_meta_tag
+
+
+  %body
+    %div.menu
+      = render :partial => 'shared/menu'
+    %div.art-Sheet
+      = yield 
+    -#%a{:href => "#", :id => "alert_link"}
+    -#  Link
+    -#= text_field nil, "a", :id => "date_field"
+    %div.art-Block-body
+      %hr
+      %p
+        %p.notice
+          = notice
+        %p.alert
+          = alert
+        %div.user_nav
+          - if user_signed_in?
+            Signed in as 
+            = current_user.email
+            Not you?
+            = link_to "Sign out", destroy_user_session_path
+      
+          - else
+            = link_to "Sign up", new_user_registration_path
+            or
+            = link_to "Sign in", new_user_session_path
