@@ -1,0 +1,32 @@
+<% title "Broadcast" %>
+
+<p>
+  <strong>Name:</strong>
+  <%= @broadcast.name %>
+</p>
+<p>
+  <strong>Description:</strong>
+  <%= @broadcast.description %>
+</p>
+<p>
+  <strong>Is Active:</strong>
+  <%= @broadcast.is_active %>
+</p>
+<p>
+  <strong>Day:</strong>
+  <%= @broadcast.day %>
+</p>
+<p>
+  <strong>Hour Start:</strong>
+  <%= @broadcast.hour_start %>
+</p>
+<p>
+  <strong>Hour End:</strong>
+  <%= @broadcast.hour_end %>
+</p>
+
+<p>
+  <%= link_to "Edit", edit_broadcast_path(@broadcast) %> |
+  <%= link_to "Destroy", @broadcast, :confirm => 'Are you sure?', :method => :delete %> |
+  <%= link_to "View All", broadcasts_path %>
+</p>

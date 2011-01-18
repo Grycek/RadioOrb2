@@ -1,4 +1,6 @@
 Projekt2::Application.routes.draw do
+  resources :broadcasts
+
   devise_for :users
   root :to => "homes#index"
 

@@ -13,3 +13,12 @@ Factory.define :admin, :class => "User" do |u|
   u.password_confirmation {|u| u.password}
   u.is_admin true
 end
+
+Factory.define :broadcast do |t|
+    t.name   "Audycja1234"
+    t.description     "Opis audycji"
+    t.is_active  true
+    t.day  0
+    t.hour_start "19:38"
+    t.hour_end "20:38"
+end

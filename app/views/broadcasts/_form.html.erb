@@ -1,0 +1,28 @@
+<%= form_for @broadcast do |f| %>
+  <%= f.error_messages %>
+  <p>
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    <%= f.label :description %><br />
+    <%= f.text_area :description %>
+  </p>
+  <p>
+    <%= f.label :is_active %><br />
+    <%= f.check_box :is_active %>
+  </p>
+  <p>
+    <%= f.label :day %><br />
+    <%= f.text_field :day %>
+  </p>
+  <p>
+    <%= f.label :hour_start %><br />
+    <%= f.time_select :hour_start %>
+  </p>
+  <p>
+    <%= f.label :hour_end %><br />
+    <%= f.time_select :hour_end %>
+  </p>
+  <p><%= f.submit %></p>
+<% end %>
