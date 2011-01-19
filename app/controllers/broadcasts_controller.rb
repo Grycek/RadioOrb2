@@ -4,7 +4,8 @@ class BroadcastsController < ApplicationController
   end
 
   def show
-    @broadcast = Broadcast.find(params[:id])
+    @broadcast  = Broadcast.find(params[:id])
+    @presenters = @broadcast.users
   end
 
 
@@ -12,4 +13,13 @@ class BroadcastsController < ApplicationController
     @broadcast = Broadcast.find(params[:id])
   end
 
+  def update
+    @broadcast = Broadcast.find(params[:id])
+    if @broadcast.update_attributes(params[:broadcast])
+      flash[:notice] = "Successfully updated broadcast."
+      redirect_to broadcast_url
+    else
+      render :action => 'edit'
+    end
+  end
 end

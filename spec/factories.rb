@@ -22,3 +22,8 @@ Factory.define :broadcast do |t|
     t.hour_start "19:38"
     t.hour_end "20:38"
 end
+
+Factory.define :presenter do |t|
+    t.user_id 0
+    t.broadcast_id 0
+end

@@ -18,6 +18,13 @@
 %p
   %strong Hour End:
   = @broadcast.hour_end
+  
+%p
+  %strong Presenters:
+  %p
+    %ul
+      - @presenters.each do |presenter|    
+        %li= presenter.email
 
 %p
   = link_to "Edit", edit_broadcast_path(@broadcast)
