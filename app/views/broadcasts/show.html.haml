@@ -1,0 +1,27 @@
+- title "Broadcast"
+
+%p
+  %strong Name:
+  = @broadcast.name
+%p
+  %strong Description:
+  = @broadcast.description
+%p
+  %strong Is Active:
+  = @broadcast.is_active
+%p
+  %strong Day:
+  = @broadcast.day
+%p
+  %strong Hour Start:
+  = @broadcast.hour_start
+%p
+  %strong Hour End:
+  = @broadcast.hour_end
+
+%p
+  = link_to "Edit", edit_broadcast_path(@broadcast)
+  |
+  = link_to "Destroy", @broadcast, :confirm => 'Are you sure?', :method => :delete
+  |
+  = link_to "View All", broadcasts_path

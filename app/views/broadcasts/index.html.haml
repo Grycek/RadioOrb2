@@ -1,0 +1,23 @@
+- title "Broadcasts"
+
+%table
+  %tr
+    %th Name
+    %th Description
+    %th Is active
+    %th Day
+    %th Hour start
+    %th Hour end
+  - for broadcast in @broadcasts
+    %tr
+      %td= broadcast.name
+      %td= broadcast.description
+      %td= broadcast.is_active
+      %td= broadcast.day
+      %td= broadcast.hour_start
+      %td= broadcast.hour_end
+      %td= link_to 'Show', broadcast
+      %td= link_to 'Edit', edit_broadcast_path(broadcast)
+      %td= link_to 'Destroy', broadcast, :confirm => 'Are you sure?', :method => :delete
+
+%p= link_to "New Broadcast", new_broadcast_path(broadcast)
