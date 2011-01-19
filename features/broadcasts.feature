@@ -3,14 +3,16 @@ Feature: Manage Broadcast
   As an admin
   I want to create and manage broadcasts
   
-  Scenario: Admin login
-    Given a logged in admin user
-    Then I should not see "Forgot your password?"
     
-  Scenario: Broadcast show
+  Scenario: Active broadcast show
     When I am on the home page
-    Given broadcast called "Probna audycja"
-    Given a logged in with email "proba@proba.pl"
+    Given active broadcast called "Probna audycja"
     And I follow "Audycje"
     Then I should see "Probna audycja"
+    
+  Scenario: Inactive broadcast invisibility
+    When I am on the home page
+    Given inactive broadcast called "Probna audycja"
+    And I follow "Audycje"
+    Then I should not see "Probna audycja"
     

@@ -14,6 +14,10 @@ Given /^a logged in admin user$/ do
   click_button('Sign in')
 end
 
-Given /^broadcast called "([^"]*)"$/ do |broadcast_name|
+Given /^active broadcast called "([^"]*)"$/ do |broadcast_name|
   u = Factory.create(:broadcast, :name => broadcast_name)
+end
+
+Given /^inactive broadcast called "([^"]*)"$/ do |broadcast_name|
+  u = Factory.create(:broadcast, :name => broadcast_name, :is_active => false)
 end
