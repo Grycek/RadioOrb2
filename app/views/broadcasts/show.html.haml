@@ -27,6 +27,7 @@
         %li= presenter.email
 
 %p
-  = link_to "Edit", edit_broadcast_path(@broadcast)
-  |
+  - if authenticate_presenter
+    = link_to "Edit", edit_broadcast_path(@broadcast)
+    |
   = link_to "View All", broadcasts_path
