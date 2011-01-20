@@ -7,17 +7,18 @@
   %strong Description:
   = @broadcast.description
 %p
-  %strong Is Active:
-  = @broadcast.is_active
-%p
   %strong Day:
-  = @broadcast.day
+  = number_to_day_name(@broadcast.day)
 %p
   %strong Hour Start:
-  = @broadcast.hour_start
+  = @broadcast.hour_start.hour
+  = ':'
+  = @broadcast.hour_start.min
 %p
   %strong Hour End:
-  = @broadcast.hour_end
+  = @broadcast.hour_end.hour
+  = ':'
+  = @broadcast.hour_end.min
   
 %p
   %strong Presenters:
