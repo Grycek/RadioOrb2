@@ -36,4 +36,9 @@ Feature: Manage presenters
     Given active broadcast called "Probna audycja"
     Given a logged in with email "proba@proba.pl"
     When I am on the edit broadcast page
-    Then I should not be on the edit broadcast page
+    Then I should be on the broadcast page
+    
+  Scenario: Guest can't see broadcast edit form
+    Given active broadcast called "Probna audycja"
+    When I am on the edit broadcast page
+    Then I should be on the broadcast page
