@@ -1,0 +1,16 @@
+- title "Broadcast Playlist"
+
+%p
+  %strong Date:
+  = @broadcast_playlist.date
+%p
+  %strong Description:
+  = @broadcast_playlist.description
+%p
+  %strong Playlist:
+  = @broadcast_playlist.playlist
+
+%p
+  = link_to "Edit", edit_broadcast_broadcast_playlist_path(@broadcast_playlist)
+  |
+  = link_to "Destroy", @broadcast_broadcast_playlist, :confirm => 'Are you sure?', :method => :delete

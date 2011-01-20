@@ -30,5 +30,15 @@
 %p
   - if authenticate_presenter
     = link_to "Edit", edit_broadcast_path(@broadcast)
-    |
   = link_to "View All", broadcasts_path
+
+%td= link_to "New", new_broadcast_broadcast_playlist_path(@broadcast)
+
+%table
+  %tr
+    %th Date:
+  - @broadcast_playlists.each do |playlist|
+    %tr
+      %td= link_to playlist.date, broadcast_broadcast_playlist_path(@broadcast)
+      %td= link_to "Edit", edit_broadcast_broadcast_playlist_path(@broadcast)
+        

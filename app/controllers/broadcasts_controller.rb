@@ -6,7 +6,8 @@ class BroadcastsController < ApplicationController
   end
 
   def show
-    @broadcast  = Broadcast.find(params[:id])
+    @broadcast           = Broadcast.find(params[:id])
+    @broadcast_playlists = @broadcast.broadcast_playlists.sort_by {|obj| obj.date}
     @presenters = @broadcast.users
   end
 

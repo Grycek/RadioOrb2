@@ -4,4 +4,6 @@ class Broadcast < ActiveRecord::Base
     validates :day, :inclusion => { :in => 0..6 }
     has_many :presenters
     has_many :users, :through => :presenters
+    
+    has_many :broadcast_playlists
 end

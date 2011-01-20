@@ -1,5 +1,9 @@
 Projekt2::Application.routes.draw do
+
   resources :broadcasts,  :except => [:destroy, :new]
+  resources :broadcasts do
+    resources :broadcast_playlists, :except => [:index]
+  end
 
   devise_for :users
   root :to => "homes#index"
