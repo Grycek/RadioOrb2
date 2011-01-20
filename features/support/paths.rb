@@ -10,6 +10,8 @@ module NavigationHelpers
 
     when /the home\s?page/
       '/'
+    when /the edit broadcast page/
+      edit_broadcast_path(@broadcast)
 
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:

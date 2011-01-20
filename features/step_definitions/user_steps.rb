@@ -25,3 +25,7 @@ end
 Given /^asigned user to broadcast$/ do
   @presenter = Factory.create(:presenter, :user_id => @user, :broadcast_id => @broadcast)
 end
+
+Then /^I should see "([^"]*)" in the "([^"]*)" input$/ do |content, labeltext|
+    find_field("#{labeltext}").value.should == content
+end
