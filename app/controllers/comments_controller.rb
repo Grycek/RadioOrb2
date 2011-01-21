@@ -8,10 +8,11 @@ class CommentsController < ApplicationController
     @comments           = @broadcast_playlist.comments
     @comment            = @comments.new(params[:comment])
     @comment.user_id    = current_user.id
-    if authenticate_user! and @comment.save
+    if authenticate_user! and @comment.save and PlaylistComment.create(:broadcast_playlist_id => @broadcast_playlist.id, :comment_id => @comment.id)
       flash[:notice] = "Successfully comment."
       redirect_to broadcast_broadcast_playlist_path(@broadcast, @broadcast_playlist)
     else
+      @comment.delete
       render :action => 'show', :controller => "broadcast_playlists"
     end
   end

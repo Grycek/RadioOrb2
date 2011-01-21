@@ -1,8 +1,15 @@
 - comments.each do |comment|
-  %p
+  #comment
     = comment.content
-    %br
-    = comment.user.email
+    %table
+      %tr
+        %td= link_to 'Edit', edit_broadcast_broadcast_playlist_comment_path(broadcast, broadcast_playlist, comment)
+        %td= '|'
+        %td= link_to "Destroy", broadcast_broadcast_playlist_comment_path(broadcast, broadcast_playlist, comment), :confirm => 'Are you sure?', :method => :delete
+        %td= '|'
+        %td= comment.created_at
+        %td= '|'
+        %td= comment.user.email
     
 = form_for [ broadcast, broadcast_playlist, broadcast_playlist.comments.new] do |f|
   = f.error_messages
