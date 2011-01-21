@@ -1,0 +1,10 @@
+%table
+  %tr
+    %th Date:
+  - broadcast_playlists.sort_by {|obj| obj.date}.reverse.each do |playlist|
+    %tr
+      %td= link_to playlist.date, broadcast_broadcast_playlist_path(broadcast, playlist)
+      - if authenticate_presenter(broadcast)
+        %td= link_to "Edit", edit_broadcast_broadcast_playlist_path(broadcast, playlist)
+      - if authenticate_presenter(broadcast)
+        %td= link_to "Destroy", broadcast_broadcast_playlist_path(broadcast, playlist), :confirm => 'Are you sure?', :method => :delete

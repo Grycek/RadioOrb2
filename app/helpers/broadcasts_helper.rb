@@ -1,7 +1,8 @@
 require 'date'
 module BroadcastsHelper
-  def authenticate_presenter
-    return false unless current_user and (current_user.broadcasts.include? Broadcast.find(params[:id]) )
+  def authenticate_presenter(broadcast = nil)
+    broadcast = params[:id] if broadcast == nil
+    return false unless current_user and (current_user.broadcasts.include? Broadcast.find( broadcast ) )
     return true
   end
   

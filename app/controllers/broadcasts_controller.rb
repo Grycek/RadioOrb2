@@ -7,8 +7,8 @@ class BroadcastsController < ApplicationController
 
   def show
     @broadcast           = Broadcast.find(params[:id])
-    @broadcast_playlists = @broadcast.broadcast_playlists.sort_by {|obj| obj.date}
-    @presenters = @broadcast.users
+    @broadcast_playlists = @broadcast.broadcast_playlists
+    @presenters          = @broadcast.users
   end
 
 
@@ -28,8 +28,12 @@ class BroadcastsController < ApplicationController
   
   
   def authenticate_presenter
-    redirect_to broadcast_url and return false unless current_user and (current_user.broadcasts.include? Broadcast.find(params[:id]) )
-    return true
+    unless current_user and (current_user.broadcasts.include? Broadcast.find(params[:id]) )
+      flash[:error] = "Permission denied"
+      redirect_to broadcast_url(params[:id]) and return false 
+    else
+      return true
+    end
   end
   
 end

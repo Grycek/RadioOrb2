@@ -34,11 +34,5 @@
 
 %td= link_to "New", new_broadcast_broadcast_playlist_path(@broadcast)
 
-%table
-  %tr
-    %th Date:
-  - @broadcast_playlists.each do |playlist|
-    %tr
-      %td= link_to playlist.date, broadcast_broadcast_playlist_path(@broadcast)
-      %td= link_to "Edit", edit_broadcast_broadcast_playlist_path(@broadcast)
+= render :partial => "broadcast_playlists/playlists", :locals => { :broadcast_playlists => @broadcast_playlists, :broadcast => @broadcast }
         
