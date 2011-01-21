@@ -14,7 +14,12 @@ module NavigationHelpers
       edit_broadcast_path(@broadcast)
     when /the broadcast page/
       broadcast_path(@broadcast)
-
+    when /the broadcast_playlist page/
+      broadcast_broadcast_playlist_path(@broadcast, @playlist)
+    when /the edit broadcast_playlist page/
+      edit_broadcast_broadcast_playlist_path(@broadcast, @playlist)
+    when /the new broadcast_playlist page/
+      new_broadcast_broadcast_playlist_path(@broadcast, @playlist)
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:
     #

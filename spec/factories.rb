@@ -27,3 +27,11 @@ Factory.define :presenter do |t|
     t.user_id 0
     t.broadcast_id 0
 end
+
+
+Factory.define :broadcast_playlist do |t|
+    t.date "2011-01-12 21:45:00"
+    t.description "Probny opis"
+    t.playlist "01.Probny utwor\n02. Probny utwor2"
+    t.broadcast_id  Factory.build(:broadcast)
+end

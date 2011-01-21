@@ -29,3 +29,15 @@ end
 Then /^I should see "([^"]*)" in the "([^"]*)" input$/ do |content, labeltext|
     find_field("#{labeltext}").value.should == content
 end
+
+Then /^I should see(?: within "([^"]*)")? in that order:$/ do |selector, table|
+  pattern = table.raw.flatten.collect(&Regexp.method(:quote)).join('.*?')
+  regexp = Regexp.compile(pattern, Regexp::MULTILINE)
+  with_scope(selector) do
+    page.should have_xpath('//*', :text => regexp)
+  end
+end
+
+Given /^playlist asigned to broadcast(?: with date "([^"]*)")?$/ do |date|
+  @playlist = Factory.create(:broadcast_playlist, :broadcast_id => @broadcast, :date => date)
+end

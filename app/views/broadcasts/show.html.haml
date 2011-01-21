@@ -31,8 +31,9 @@
   - if authenticate_presenter
     = link_to "Edit", edit_broadcast_path(@broadcast)
   = link_to "View All", broadcasts_path
-
-%td= link_to "New", new_broadcast_broadcast_playlist_path(@broadcast)
+  
+- if authenticate_presenter
+  %td= link_to "New playlists", new_broadcast_broadcast_playlist_path(@broadcast)
 
 = render :partial => "broadcast_playlists/playlists", :locals => { :broadcast_playlists => @broadcast_playlists, :broadcast => @broadcast }
         
