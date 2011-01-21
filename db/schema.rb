@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110120203124) do
+ActiveRecord::Schema.define(:version => 20110121195811) do
 
   create_table "broadcast_playlists", :force => true do |t|
     t.datetime "date"
@@ -32,6 +32,13 @@ ActiveRecord::Schema.define(:version => 20110120203124) do
     t.datetime "updated_at"
   end
 
+  create_table "comments", :force => true do |t|
+    t.text     "content"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "histories", :force => true do |t|
     t.string   "message"
     t.string   "username"
@@ -44,6 +51,13 @@ ActiveRecord::Schema.define(:version => 20110120203124) do
   end
 
   add_index "histories", ["item", "table", "month", "year"], :name => "index_histories_on_item_and_table_and_month_and_year"
+
+  create_table "playlist_comments", :force => true do |t|
+    t.integer  "broadcast_playlist_id"
+    t.integer  "comment_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "presenters", :force => true do |t|
     t.integer  "user_id"

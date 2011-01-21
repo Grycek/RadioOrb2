@@ -8,4 +8,6 @@ class User < ActiveRecord::Base
   attr_accessible :email, :password, :password_confirmation, :remember_me
   has_many :presenters
   has_many :broadcasts, :through => :presenters
+  
+  has_many :comments
 end

@@ -10,6 +10,10 @@
   %strong Playlist:
   = @broadcast_playlist.playlist
 
-  
-        
+%hr  
+= render :partial => "shared/comment", :locals => { :comments => @comments, :broadcast_playlist => @broadcast_playlist, :broadcast => @broadcast }
+%hr        
 = render :partial => "broadcast_playlists/playlists", :locals => { :broadcast_playlists => @broadcast_playlists, :broadcast => @broadcast }
+
+
+

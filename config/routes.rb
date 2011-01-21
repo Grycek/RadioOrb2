@@ -2,7 +2,9 @@ Projekt2::Application.routes.draw do
 
   resources :broadcasts,  :except => [:destroy, :new]
   resources :broadcasts do
-    resources :broadcast_playlists, :except => [:index]
+    resources :broadcast_playlists, :except => [:index] do
+      resources :comments, :only => [:new, :destroy, :edit, :update, :create]
+    end
   end
 
   devise_for :users

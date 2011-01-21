@@ -5,6 +5,7 @@ class BroadcastPlaylistsController < ApplicationController
     @broadcast           = Broadcast.find(params[:broadcast_id])
     @broadcast_playlists = @broadcast.broadcast_playlists
     @broadcast_playlist  = @broadcast_playlists.find(params[:id])
+    @comments            = @broadcast_playlist.comments
   end
 
   def new

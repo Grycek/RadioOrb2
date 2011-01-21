@@ -1,0 +1,14 @@
+- comments.each do |comment|
+  %p
+    = comment.content
+    %br
+    = comment.user.email
+    
+= form_for [ broadcast, broadcast_playlist, broadcast_playlist.comments.new] do |f|
+  = f.error_messages
+  %p
+    = f.label :content
+    %br
+    = f.text_area :content
+  %p
+    = f.submit
