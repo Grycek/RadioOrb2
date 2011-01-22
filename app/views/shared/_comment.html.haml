@@ -1,12 +1,13 @@
-- comments.each do |comment|
+- comments.sort_by {|obj| obj.created_at}.reverse.each do |comment|
   #comment
     = comment.content
     %table
       %tr
-        %td= link_to 'Edit', edit_broadcast_broadcast_playlist_comment_path(broadcast, broadcast_playlist, comment)
-        %td= '|'
-        %td= link_to "Destroy", broadcast_broadcast_playlist_comment_path(broadcast, broadcast_playlist, comment), :confirm => 'Are you sure?', :method => :delete
-        %td= '|'
+        - if authenticate_presenter_or_author(broadcast, comment)
+          %td= link_to 'Edit', edit_broadcast_broadcast_playlist_comment_path(broadcast, broadcast_playlist, comment)
+          %td= '|'
+          %td= link_to "Destroy", broadcast_broadcast_playlist_comment_path(broadcast, broadcast_playlist, comment), :confirm => 'Are you sure?', :method => :delete
+          %td= '|'
         %td= comment.created_at
         %td= '|'
         %td= comment.user.email
