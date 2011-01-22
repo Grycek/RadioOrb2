@@ -18,14 +18,14 @@ class CommentsController < ApplicationController
     end
   end
   
-  #TODO! - dodatkowa autententykacja autora komentarza
+  
   def edit
     @broadcast          = Broadcast.find(params[:broadcast_id])
     @broadcast_playlist = BroadcastPlaylist.find(params[:broadcast_playlist_id])
     @comment            = Comment.find(params[:id])
   end
   
-  #TODO! - dodatkowa autententykacja autora komentarza
+  
   def update
     @broadcast          = Broadcast.find(params[:broadcast_id])
     @broadcast_playlist = BroadcastPlaylist.find(params[:broadcast_playlist_id])
@@ -38,7 +38,7 @@ class CommentsController < ApplicationController
     end
   end
   
-  #TODO! - dodatkowa autententykacja autora komentarza
+  
   def destroy
     @broadcast          = Broadcast.find(params[:broadcast_id])
     @broadcast_playlist = BroadcastPlaylist.find(params[:broadcast_playlist_id])
