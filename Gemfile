@@ -9,6 +9,7 @@ gem "will_paginate", "~> 3.0.pre2"
 gem 'validates_timeliness', '~> 3.0.2'
 gem 'nifty-generators'
 gem 'rails_admin', :git => 'git://github.com/sferik/rails_admin.git'
+gem 'launchy'
 
 group :test, :development do
   gem "rspec-rails", "~> 2.0.1"

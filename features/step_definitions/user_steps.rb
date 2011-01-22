@@ -1,7 +1,8 @@
 Given /^a logged in with email "([^"]*)"$/ do |email|
-  @user = Factory.create(:user, :email => email)
+  @user = User.find_by_email(email)
+  @user = Factory.create(:user, :email => email) unless @user
   visit(new_user_session_path)
-  fill_in("user[email]", :with => email)
+  fill_in("user[email]", :with => @user.email)
   fill_in("user[password]", :with => @user.password)
   click_button('Sign in')
 end
@@ -23,7 +24,7 @@ Given /^inactive broadcast called "([^"]*)"$/ do |broadcast_name|
 end
 
 Given /^asigned user to broadcast$/ do
-  @presenter = Factory.create(:presenter, :user_id => @user, :broadcast_id => @broadcast)
+  @presenter = Factory.create(:presenter, :user_id => @user.id, :broadcast_id => @broadcast.id)
 end
 
 Then /^I should see "([^"]*)" in the "([^"]*)" input$/ do |content, labeltext|
@@ -39,5 +40,32 @@ Then /^I should see(?: within "([^"]*)")? in that order:$/ do |selector, table|
 end
 
 Given /^playlist asigned to broadcast(?: with date "([^"]*)")?$/ do |date|
-  @playlist = Factory.create(:broadcast_playlist, :broadcast_id => @broadcast, :date => date)
+  if date == nil
+    @playlist = Factory.create(:broadcast_playlist, :broadcast_id => @broadcast.id)
+  else
+    @playlist = Factory.create(:broadcast_playlist, :broadcast_id => @broadcast.id, :date => date)
+  end
 end
+
+
+Given /^comment asigned to playlist(?: with content "([^"]*)")?$/ do |content|
+  if content == nil
+    @comment = Factory.create(:comment)
+  else
+    @comment = Factory.create(:comment, :content => content)
+  end
+  @comment.user_id = Factory.create(:user)
+  @playlist_comment = Factory.create(:playlist_comment, :broadcast_playlist_id => @playlist.id, :comment_id => @comment.id)
+end
+
+
+Given /^comment asigned to playlist and user(?: with content "([^"]*)")?$/ do |content|
+  if content == nil
+    @comment = Factory.create(:comment)
+  else
+    @comment = Factory.create(:comment, :content => content)
+  end
+  @comment.user_id  = @user.id
+  @playlist_comment = Factory.create(:playlist_comment, :broadcast_playlist_id => @playlist.id, :comment_id => @comment.id)
+end
+

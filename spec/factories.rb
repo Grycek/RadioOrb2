@@ -35,3 +35,15 @@ Factory.define :broadcast_playlist do |t|
     t.playlist "01.Probny utwor\n02. Probny utwor2"
     t.broadcast_id  Factory.build(:broadcast)
 end
+
+
+Factory.define :comment do |t|
+    t.content "Probna zawartosc"
+    t.user_id Factory.build(:user)
+end
+
+
+Factory.define :playlist_comment do |t|
+    t.broadcast_playlist_id Factory.build(:broadcast_playlist)
+    t.comment_id Factory.build(:comment)
+end

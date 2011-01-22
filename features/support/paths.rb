@@ -20,6 +20,8 @@ module NavigationHelpers
       edit_broadcast_broadcast_playlist_path(@broadcast, @playlist)
     when /the new broadcast_playlist page/
       new_broadcast_broadcast_playlist_path(@broadcast, @playlist)
+    when /the edit_broadcast_broadcast_playlist_comment/
+      edit_broadcast_broadcast_playlist_comment_path(@broadcast, @playlist, @comment)
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:
     #
