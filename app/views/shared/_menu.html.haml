@@ -6,4 +6,9 @@
       %td
         =link_to "Audycje", broadcasts_path
       %td
+        =link_to "Artykuły", articles_path
+      - if current_user and current_user.is_presenter
+        %td
+          =link_to "Panel prezentera", presenters_path
+      %td
         =#link_to "Panel administratora", admin_root_path

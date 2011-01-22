@@ -90,3 +90,5 @@ Feature: Manage comments
       Then I should be on the broadcast_playlist page
       And I should see "Gucio"
       And I should not see "Pszczolka Maja"
+      
+  #tODO: usuwanies

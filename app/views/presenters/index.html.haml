@@ -1,0 +1,31 @@
+%h2
+  Articles
+%table
+  %tr
+    %th
+      %strong Title:
+    %th
+      %strong Start:
+    %th
+      %strong End:
+  - @articles.each do |article|
+    %tr
+      %td= link_to article.title, article_path(article)
+      %td= article.start
+      %td= article.end
+      %td= link_to 'Edit', edit_article_path(article)
+      %td= link_to 'Destroy', article, :confirm => 'Are you sure?', :method => :delete
+%p= link_to "New Article", new_article_path
+
+%hr
+%h2
+  Broadcasts
+%table
+  %tr
+    %th
+      %strong Name:
+  - @broadcasts.each do |broadcast|
+    %tr
+      %td= link_to broadcast.name, broadcast_path(broadcast)
+      %td= link_to 'Edit', edit_broadcast_path(broadcast)
+

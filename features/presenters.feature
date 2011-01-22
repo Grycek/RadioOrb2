@@ -51,3 +51,14 @@ Feature: Manage presenters
     Then I should not see "Edit"
     When I am on the edit broadcast page
     Then I should be on the broadcast page
+    
+  Scenario: Presenter see presenter's panel
+    Given active broadcast called "Probna audycja"
+    Given a logged in with email "proba@proba.pl"
+    Given asigned user to broadcast 
+    When I am on the home page 
+    Then show me the page
+    Then I should see "Panel prezentera"  
+    And I follow "Panel prezentera"
+    Then I should see "Articles"  
+    Then I should see "Broadcasts"  

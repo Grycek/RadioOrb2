@@ -1,0 +1,24 @@
+= form_for @article do |f|
+  = f.error_messages
+  %p
+    = f.label :title
+    %br
+    = f.text_field :title
+  %p
+    = f.label :shortcontent
+    %br
+    = f.text_area :shortcontent, :class => "mceEditor"
+  %p
+    = f.label :content
+    %br
+    = f.text_area :content, :class => "mceEditor"
+  %p
+    = f.label :start
+    %br
+    = f.datetime_select :start
+  %p
+    = f.label :end
+    %br
+    = f.datetime_select :end
+  %p
+    = f.submit

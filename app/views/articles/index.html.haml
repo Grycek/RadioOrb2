@@ -1,0 +1,14 @@
+- title "Articles"
+
+- for article in @articles
+  #article
+    %strong Title:
+    = article.title
+    #art_content
+      = raw(article.shortcontent)
+      %br
+      %td
+        %tr= link_to "More", article_path(article)
+        %tr= article.user.email
+        %tr= article.start
+

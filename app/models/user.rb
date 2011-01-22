@@ -10,4 +10,10 @@ class User < ActiveRecord::Base
   has_many :broadcasts, :through => :presenters
   
   has_many :comments
+  
+  has_many :articles
+  
+  def is_presenter
+      return (not broadcasts.empty?)
+  end
 end

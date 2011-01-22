@@ -1,0 +1,14 @@
+- title "Article"
+
+%p
+  %strong Title:
+  = @article.title
+
+%p
+  %strong Content:
+  %br
+  = raw(@article.content)
+%p
+  = link_to "View All", articles_path
+  |
+  = @article.user.email  
