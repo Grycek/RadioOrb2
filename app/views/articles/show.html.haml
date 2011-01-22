@@ -11,4 +11,8 @@
 %p
   = link_to "View All", articles_path
   |
-  = @article.user.email  
+  = @article.user.email
+
+%hr  
+%strong Comments
+= render :partial => "article_comments/comment", :locals => { :article => @article, :comments => @comments}

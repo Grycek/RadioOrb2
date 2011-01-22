@@ -1,0 +1,22 @@
+- comments.sort_by {|obj| obj.created_at}.reverse.each do |comment|
+  #comment
+    = comment.content
+    %table
+      %tr
+        - if authenticate_article_or_comment_author(article, comment)
+          %td= link_to 'Edit', edit_article_comment_path(comment)
+          %td= '|'
+          %td= link_to "Destroy", article_comment_path(comment), :confirm => 'Are you sure?', :method => :delete
+          %td= '|'
+        %td= comment.created_at
+        %td= '|'
+        %td= comment.user.email
+    
+= form_for [ article, article.comments.new] do |f|
+  = f.error_messages
+  %p
+    = f.label :content
+    %br
+    = f.text_area :content
+  %p
+    = f.submit

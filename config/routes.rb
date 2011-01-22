@@ -1,6 +1,7 @@
 Projekt2::Application.routes.draw do
 
   resources :articles
+  resources :article_comments, :only => [:create, :edit, :update, :destroy]
 
   resources :presenters, :only => [:index]
   resources :broadcasts,  :except => [:destroy, :new] do

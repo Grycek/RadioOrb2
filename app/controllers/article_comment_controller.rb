@@ -1,2 +1,0 @@
-class ArticleCommentController < ApplicationController
-end
