@@ -57,7 +57,6 @@ Feature: Manage presenters
     Given a logged in with email "proba@proba.pl"
     Given asigned user to broadcast 
     When I am on the home page 
-    Then show me the page
     Then I should see "Panel prezentera"  
     And I follow "Panel prezentera"
     Then I should see "Articles"  

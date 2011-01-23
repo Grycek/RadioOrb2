@@ -47,3 +47,12 @@ Factory.define :playlist_comment do |t|
     t.broadcast_playlist_id Factory.build(:broadcast_playlist)
     t.comment_id Factory.build(:comment)
 end
+
+Factory.define :article do |t|
+    t.title "Probny Tytul"
+    t.shortcontent "Probny Skrot"
+    t.content "Probna tresc"
+    t.user_id Factory.build(:user)
+    t.start Time.now - 7200
+    t.end Time.now + 7200
+end

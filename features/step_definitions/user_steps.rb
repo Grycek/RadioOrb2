@@ -69,3 +69,12 @@ Given /^comment asigned to playlist and user(?: with content "([^"]*)")?$/ do |c
   @playlist_comment = Factory.create(:playlist_comment, :broadcast_playlist_id => @playlist.id, :comment_id => @comment.id)
 end
 
+
+Given /^visible article with title "([^"]*)"$/ do |title|
+  @article = Factory.create(:article, :title => title)
+end
+
+Given /^user asigned to article$/ do
+  @article.user_id = @user.id
+end
+

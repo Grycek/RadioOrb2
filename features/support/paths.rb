@@ -22,6 +22,8 @@ module NavigationHelpers
       new_broadcast_broadcast_playlist_path(@broadcast, @playlist)
     when /the edit_broadcast_broadcast_playlist_comment/
       edit_broadcast_broadcast_playlist_comment_path(@broadcast, @playlist, @comment)
+    when /the edit_article page/
+      edit_article_path(@article)
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:
     #
