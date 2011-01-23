@@ -34,7 +34,7 @@ class CommentsController < ApplicationController
       flash[:notice] = "Successfully edit comment."
       redirect_to broadcast_broadcast_playlist_path(@broadcast, @broadcast_playlist)
     else
-      render :action => 'edit'
+      render :action => 'show', :controller => "broadcast_playlists"
     end
   end
   
