@@ -1,0 +1,17 @@
+- title "Charts"
+
+%table
+  %tr
+    %th Number
+    %th Description
+    %th Date
+  - for chart in @charts
+    %tr
+      %td= chart.number
+      %td= chart.description
+      %td= chart.date
+      %td= link_to 'Show', chart
+      %td= link_to 'Edit', edit_chart_path(chart)
+      %td= link_to 'Destroy', chart, :confirm => 'Are you sure?', :method => :delete
+
+%p= link_to "New Chart", new_chart_path(chart)

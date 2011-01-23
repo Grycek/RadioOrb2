@@ -1,0 +1,16 @@
+= form_for song do |f|
+  = f.error_messages
+  %p
+    = f.label :artist
+    %br
+    = f.text_field :artist
+  %p
+    = f.label :title
+    %br
+    = f.text_field :title
+  %p
+    = f.label :is_active
+    %br
+    = f.check_box :is_active
+  %p
+    = f.submit

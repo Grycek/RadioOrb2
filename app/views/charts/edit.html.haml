@@ -1,0 +1,8 @@
+- title "Edit Chart"
+
+= render :partial => 'form', :locals => {:chart => @chart}
+
+%p
+  = link_to "Show", @chart
+  |
+  = link_to "View All", charts_path

@@ -1,5 +1,9 @@
 Projekt2::Application.routes.draw do
 
+  resources :charts
+
+  resources :songs
+
   resources :articles do
     resources :article_comments, :only => [:create, :edit, :update, :destroy]
   end

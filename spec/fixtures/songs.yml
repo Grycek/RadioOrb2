@@ -1,0 +1,9 @@
+one:
+  artist: MyString
+  title: MyString
+  is_active: false
+
+two:
+  artist: MyString
+  title: MyString
+  is_active: false

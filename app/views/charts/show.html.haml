@@ -1,0 +1,18 @@
+- title "Chart"
+
+%p
+  %strong Number:
+  = @chart.number
+%p
+  %strong Description:
+  = @chart.description
+%p
+  %strong Date:
+  = @chart.date
+
+%p
+  = link_to "Edit", edit_chart_path(@chart)
+  |
+  = link_to "Destroy", @chart, :confirm => 'Are you sure?', :method => :delete
+  |
+  = link_to "View All", charts_path
