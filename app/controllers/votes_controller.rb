@@ -3,12 +3,20 @@ class VotesController < ApplicationController
     
     def new
         @songs = Song.order('artist asc').where(:is_active => true)
+        if Chart.last_chart == nil
+            render :text => "Voting for chart not opened"
+        end
     end
     
     def create
       @songs   = Song.order('artist asc').where(:is_active => true)
       #TODO - szukanie ostatniego notowania
       @chart   = Chart.last_chart
+      if @chart == nil
+          render :text => "Voting for chart not opened"
+          return
+      end
+      
       song_ids = params.find_all {|key, val| val == '1'}
       song_ids = song_ids.map {|key,val| key}
       song_ids = song_ids.find_all {|id| s = Song.find(id); s and s.is_active}
@@ -17,7 +25,6 @@ class VotesController < ApplicationController
           render :action => 'new'
           return
       end
-      
       
       votes = []
       song_ids.each do |song_id|

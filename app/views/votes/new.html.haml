@@ -1,4 +1,13 @@
--if current_user and (not current_user.has_voted)
+- if Chart.last_chart
+  %strong Chart: 
+  = Chart.last_chart.number
+  %br
+  
+- if Chart.last_chart 
+  = Chart.last_chart.description
+%br
+%p
+  -if current_user and (not current_user.has_voted)
     =render :partial => "form", :locals => {:songs => @songs}
--else
-    %strong You cannot vote. You have already voted.
+  -else
+    %strong Thank you for your votes.
