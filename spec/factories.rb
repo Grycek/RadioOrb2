@@ -56,3 +56,8 @@ Factory.define :article do |t|
     t.start Time.now - 7200
     t.end Time.now + 7200
 end
+
+Factory.define :article_comment do |t|
+    t.article_id Factory.build(:article)
+    t.comment_id Factory.build(:comment)
+end

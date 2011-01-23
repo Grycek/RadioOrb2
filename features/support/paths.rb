@@ -24,6 +24,10 @@ module NavigationHelpers
       edit_broadcast_broadcast_playlist_comment_path(@broadcast, @playlist, @comment)
     when /the edit_article page/
       edit_article_path(@article)
+    when /the article page/
+      article_path(@article)
+    when /the edit_article_article_comment/
+      edit_article_article_comment_path(@article, @comment)
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:
     #

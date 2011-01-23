@@ -1,5 +1,5 @@
 class ArticlesController < ApplicationController
-  uses_tiny_mce :options => { :theme => 'advanced' }
+  uses_tiny_mce :options => { :theme => 'advanced' } , :only => [:new, :edit, :update, :create]
   before_filter :authenticate_presenter, :only => [:new, :create]
   before_filter :authenticate_author, :only => [:edit, :update, :destroy]
   def index

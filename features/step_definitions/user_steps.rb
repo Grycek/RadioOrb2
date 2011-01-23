@@ -71,10 +71,30 @@ end
 
 
 Given /^visible article with title "([^"]*)"$/ do |title|
-  @article = Factory.create(:article, :title => title)
+  @article = Factory.create(:article, :title => title, :user_id => Factory.create(:user) )
 end
 
 Given /^user asigned to article$/ do
   @article.user_id = @user.id
+  @article.save
 end
 
+
+Given /^comment asigned to article(?: with content "([^"]*)")?$/ do |content|
+  if content == nil
+    @comment = Factory.create(:comment)
+  else
+    @comment = Factory.create(:comment, :content => content)
+  end
+  @comment.user_id  = Factory.create(:user)
+  @article_comment  = Factory.create(:article_comment, :article_id => @article.id, :comment_id => @comment.id)
+end
+
+Given /^comment asigned to article and user(?: with content "([^"]*)")?$/ do |content|
+  if content == nil
+    @comment = Factory.create(:comment, :user_id => @user.id)
+  else
+    @comment = Factory.create(:comment, :content => content, :user_id => @user.id)
+  end
+  @article_comment  = Factory.create(:article_comment, :article_id => @article.id, :comment_id => @comment.id)
+end
