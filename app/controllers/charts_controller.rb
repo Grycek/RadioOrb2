@@ -1,6 +1,6 @@
 class ChartsController < ApplicationController
   def index
-    @charts = Chart.order('number asc').all
+    @charts = Chart.order('number desc').all
     @charts = @charts.paginate(:page => params[:page], :per_page => 50)
   end
 
@@ -30,7 +30,7 @@ class ChartsController < ApplicationController
     @chart = Chart.find(params[:id])
     if @chart.update_attributes(params[:chart])
       flash[:notice] = "Successfully updated chart."
-      redirect_to chart_url
+      redirect_to chart_path(@chart)
     else
       render :action => 'edit'
     end
@@ -40,6 +40,6 @@ class ChartsController < ApplicationController
     @chart = Chart.find(params[:id])
     @chart.destroy
     flash[:notice] = "Successfully destroyed chart."
-    redirect_to charts_url
+    redirect_to charts_path(@chart)
   end
 end
