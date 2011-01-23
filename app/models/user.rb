@@ -10,10 +10,16 @@ class User < ActiveRecord::Base
   has_many :broadcasts, :through => :presenters
   
   has_many :comments
-  
   has_many :articles
+  
+  has_many :votes
   
   def is_presenter
       return (not broadcasts.empty?)
+  end
+  
+  #return true if user has voted on last chart
+  def has_voted
+      return votes.where(:chart_id => Chart.last_chart).any?
   end
 end

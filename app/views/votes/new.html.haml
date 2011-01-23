@@ -1,0 +1,4 @@
+-if current_user and (not current_user.has_voted)
+    =render :partial => "form", :locals => {:songs => @songs}
+-else
+    %strong You cannot vote. You have already voted.

@@ -1,0 +1,15 @@
+= form_tag '/votes' do
+  %table
+    %tr
+      %th Artist
+      %th Title
+      %th
+    - @songs.each do |song|
+      %tr
+        %td=song.artist
+        %td=song.title
+        %td= check_box_tag song.id
+  = submit_tag 'Vote'
+  
+%p
+  %strong Max. number of votes - 10
