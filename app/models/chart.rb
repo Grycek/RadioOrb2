@@ -5,6 +5,10 @@ class Chart < ActiveRecord::Base
     
     #TODO: niech zwraca nila jesli dla tego notowani  juz sa podliczone wyniki
     def self.last_chart
-        return Chart.last
+        if Chart.last and (not Chart.last.results.any?)
+          return Chart.last
+        else
+          return nil
+        end
     end
 end

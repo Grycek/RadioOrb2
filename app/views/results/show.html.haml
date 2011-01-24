@@ -1,0 +1,27 @@
+- title "Chart"
+
+%p
+  %strong Number:
+  = @chart.number
+%p
+  %strong Description:
+  = @chart.description
+%p
+  %strong Date:
+  = @chart.date
+  
+
+%table
+  %tr
+    %th Artist
+    %th Title
+    %th Position
+  - @results.each do |result|
+    %tr
+      %td=result.song.artist
+      %td=result.song.title
+      %td=result.position
+      %td=link_to "Show", song_path(result.song.id)
+
+%p
+  = link_to "View All", charts_path

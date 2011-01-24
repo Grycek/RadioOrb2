@@ -1,0 +1,9 @@
+- title "Charts"
+%table
+  %tr
+    %th Number
+  - for chart in @charts
+    %tr
+      %td= link_to chart.number, result_path(chart.id)
+      
+= will_paginate @charts

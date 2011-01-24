@@ -9,6 +9,18 @@
 %p
   %strong Date:
   = @chart.date
+  
+
+%table
+  %tr
+    %th Artist
+    %th Title
+    %th Number of votes
+  - @songs.each do |song|
+    %tr
+      %td=song.artist
+      %td=song.title
+      %td=song.votes.where(:chart_id => @chart.id).length
 
 %p
   = link_to "Edit", edit_chart_path(@chart)

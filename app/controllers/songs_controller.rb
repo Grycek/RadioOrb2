@@ -1,5 +1,5 @@
 class SongsController < ApplicationController
-  before_filter :authenticate_admin
+  before_filter :authenticate_admin, :except => [:show]
   def index
     @songs = Song.order('is_active desc').order('artist').all
     @songs = @songs.paginate(:page => params[:page], :per_page => 50)

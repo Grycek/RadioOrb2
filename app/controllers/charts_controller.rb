@@ -1,11 +1,14 @@
 class ChartsController < ApplicationController
+  before_filter :authenticate_admin
+  
   def index
-    @charts = Chart.order('number desc').all
+    @charts = Chart.order('id desc').all
     @charts = @charts.paginate(:page => params[:page], :per_page => 50)
   end
 
   def show
     @chart = Chart.find(params[:id])
+    @songs = Song.where(:is_active => true).order('artist asc')
   end
 
   def new

@@ -2,6 +2,7 @@ Projekt2::Application.routes.draw do
 
   resources :charts
   resources :songs
+  resources :results, :only => [:index, :show]
   
   resources :votes, :only => [:new, :create]
 

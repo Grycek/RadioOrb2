@@ -13,5 +13,7 @@
       %td= link_to 'Show', chart
       %td= link_to 'Edit', edit_chart_path(chart)
       %td= link_to 'Destroy', chart, :confirm => 'Are you sure?', :method => :delete
+      
+= will_paginate @charts
 
-%p= link_to "Cloase voting and create new chart", new_chart_path(chart)
+%p= link_to "Close voting and create new chart", new_chart_path(chart)
