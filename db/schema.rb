@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110124155620) do
+ActiveRecord::Schema.define(:version => 20110124164447) do
 
   create_table "article_comments", :force => true do |t|
     t.integer  "article_id"
@@ -24,8 +24,8 @@ ActiveRecord::Schema.define(:version => 20110124155620) do
     t.text     "shortcontent"
     t.text     "content"
     t.integer  "user_id"
-    t.datetime "start"
-    t.datetime "end"
+    t.datetime "start_date"
+    t.datetime "end_date"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

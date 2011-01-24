@@ -15,7 +15,7 @@
     #menu
       = render :partial => 'shared/menu'
     #container
-      .text
+      #bigger-container
         - flash.each do |name, msg|
           = content_tag :div, msg, :id => "flash_#{name}"
 
@@ -23,7 +23,9 @@
           %h1= yield(:title)
 
         = yield
-      .survey
+      #smaller-container
+        =render :partial => 'shared/survey'
+      %div.clearer
       
     %div.art-Block-body
       %hr

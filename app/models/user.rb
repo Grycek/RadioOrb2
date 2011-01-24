@@ -23,4 +23,8 @@ class User < ActiveRecord::Base
   def has_voted
       return votes.where(:chart_id => Chart.last_chart).any?
   end
+  
+  def has_answered_for_last_survey
+      return survey_answers.where(:survey_id => Survey.last_survey.id).any?
+  end
 end

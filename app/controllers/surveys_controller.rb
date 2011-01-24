@@ -1,5 +1,5 @@
 class SurveysController < ApplicationController
-  before_filter :authenticate_admin
+  before_filter :authenticate_admin, :except => [:vote]
   before_filter :authenticate_user!, :only => [:vote]
   def index
     @surveys = Survey.order('id desc').all
@@ -47,7 +47,7 @@ class SurveysController < ApplicationController
   end
   
   def vote
-      answer = current_user.survey_answers.new(:survey_question_id => params[:survey][:answer])
+      answer = current_user.survey_answers.new(:survey_question_id => params[:survey_question][:answer], :survey_id => Survey.last_survey.id)
       if answer.save
         flash[:notice] = "Success"
         redirect_to root_path

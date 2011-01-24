@@ -11,8 +11,8 @@
   - @articles.each do |article|
     %tr
       %td= link_to article.title, article_path(article)
-      %td= article.start
-      %td= article.end
+      %td= article.start_date
+      %td= article.end_date
       %td= link_to 'Edit', edit_article_path(article)
       %td= link_to 'Destroy', article, :confirm => 'Are you sure?', :method => :delete
 %p= link_to "New Article", new_article_path

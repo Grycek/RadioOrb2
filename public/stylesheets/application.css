@@ -36,6 +36,15 @@ a {
   padding: 20px 40px;
   border: solid 1px black;
   margin-top: 20px; }
+  #container #bigger-container {
+    float: left;
+    width: 80%; }
+  #container #smaller-container {
+    float: right;
+    width: 20%; }
+
+.clearer {
+  clear: both; }
 
 #comment {
   width: 75%;

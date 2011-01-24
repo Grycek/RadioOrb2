@@ -1,0 +1,15 @@
+%p
+  Question:
+  %br
+  =survey.question
+= form_tag '/surveys/vote' do
+  %table
+    %tr
+      %th 
+      %th Answer
+      %th
+    - answers.each do |answer|
+      %tr
+        %td=radio_button("survey_question", "answer", answer.id)
+        %td=answer.answer
+  = submit_tag 'Vote'

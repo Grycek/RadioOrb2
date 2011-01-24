@@ -53,8 +53,8 @@ Factory.define :article do |t|
     t.shortcontent "Probny Skrot"
     t.content "Probna tresc"
     t.user_id Factory.build(:user)
-    t.start Time.now - 7200
-    t.end Time.now + 7200
+    t.start_date Time.now - 7200
+    t.end_date Time.now + 7200
 end
 
 Factory.define :article_comment do |t|

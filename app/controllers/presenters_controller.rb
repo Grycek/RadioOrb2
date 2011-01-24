@@ -2,7 +2,7 @@ class PresentersController < ApplicationController
   before_filter :authenticate_presenter
   
   def index
-      @articles   = current_user.articles.order('start DESC')
+      @articles   = current_user.articles.order('start_date DESC')
       @broadcasts = current_user.broadcasts
   end
   

@@ -10,10 +10,3 @@
       %td= link_to 'Destroy', survey, :confirm => 'Are you sure?', :method => :delete
 
 %p= link_to "New Survey", new_survey_path(survey)
-%hr
-
--if Survey.last_survey
-  =render :partial => 'shared/survey', :locals => {:survey => Survey.last_survey, :answers => Survey.last_survey.survey_questions}
-  
--if Survey.last_survey
-  =render :partial => 'shared/survey_result', :locals => {:survey => Survey.last_survey, :answers => Survey.last_survey.survey_questions}

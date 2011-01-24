@@ -3,7 +3,7 @@ class ArticlesController < ApplicationController
   before_filter :authenticate_presenter, :only => [:new, :create]
   before_filter :authenticate_author, :only => [:edit, :update, :destroy]
   def index
-    @articles = Article.where("start < ? AND end > ?", Time.now, Time.now).order("start DESC")
+    @articles = Article.where("start_date < ? AND end_date > ?", Time.now, Time.now).order("start_date DESC")
     #find :all , :conditions => {:start => (from..to) }, :order => "created_at"
   end
 

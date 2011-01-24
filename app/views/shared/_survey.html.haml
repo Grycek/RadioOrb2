@@ -1,11 +1,8 @@
-= form_tag '/surveys/vote' do
-  %table
-    %tr
-      %th 
-      %th Answer
-      %th
-    - answers.each do |answer|
-      %tr
-        %td= radio_button("survey", "answer", answer.id)
-        %td=answer.answer
-  = submit_tag 'Vote'
+-if Survey.last_survey
+  %h2
+    Survey
+-if Survey.last_survey and (not current_user.has_answered_for_last_survey)
+  =render :partial => 'shared/survey_vote', :locals => {:survey => Survey.last_survey, :answers => Survey.last_survey.survey_questions}
+  
+-if Survey.last_survey and current_user.has_answered_for_last_survey
+  =render :partial => 'shared/survey_result', :locals => {:survey => Survey.last_survey, :answers => Survey.last_survey.survey_questions}

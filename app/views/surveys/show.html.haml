@@ -11,6 +11,7 @@
   - @answers.each do |answer|
     %tr
       %td=answer.answer
+      %td=answer.survey_answers.length
 
 %p
   = link_to "Destroy", @survey, :confirm => 'Are you sure?', :method => :delete
