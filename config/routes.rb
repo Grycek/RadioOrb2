@@ -3,7 +3,6 @@ Projekt2::Application.routes.draw do
   resources :charts
   resources :songs
   resources :results, :only => [:index, :show]
-  
   resources :votes, :only => [:new, :create]
 
   resources :articles do
@@ -11,12 +10,13 @@ Projekt2::Application.routes.draw do
   end
 
   resources :presenters, :only => [:index]
-  resources :broadcasts,  :except => [:destroy, :new] do
+  resources :broadcasts,  :except => [:destroy, :new, :create] do
     resources :broadcast_playlists, :except => [:index] do
       resources :comments, :only => [:new, :destroy, :edit, :update, :create]
     end
   end
-
+  
+  resources :admin_panels, :only => [:index]
   devise_for :users
   root :to => "homes#index"
 

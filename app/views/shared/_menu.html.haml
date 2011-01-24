@@ -16,6 +16,7 @@
           =link_to "Panel prezentera", presenters_path
       - if current_user and current_user.is_admin
         %td
-          =link_to "Panel admina", rails_admin_dashboard_path
+          =link_to "Panel admina", admin_panels_path
+          =#link_to "Panel admina", rails_admin_dashboard_path
       %td
         =#link_to "Panel administratora", admin_root_path
