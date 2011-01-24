@@ -13,6 +13,7 @@ class User < ActiveRecord::Base
   has_many :articles
   
   has_many :votes
+  has_many :survey_answers
   
   def is_presenter
       return (not broadcasts.empty?)

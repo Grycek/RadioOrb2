@@ -13,6 +13,22 @@ a {
   height: 0;
   overflow: hidden; }
 
+#menu {
+  width: 75%;
+  margin: 0 auto;
+  background: #bcc499;
+  padding: 20px 40px;
+  border: solid 1px black;
+  margin-top: 20px; }
+
+#text {
+  width: 75%;
+  margin: 0 auto;
+  background: #bcc499;
+  padding: 20px 40px;
+  border: solid 1px black;
+  margin-top: 20px; }
+
 #container {
   width: 75%;
   margin: 0 auto;

@@ -1,5 +1,11 @@
 Projekt2::Application.routes.draw do
 
+  resources :surveys, :except => [:edit, :update] do
+    collection do
+      post 'vote'
+    end
+  end
+
   resources :charts
   resources :songs
   resources :results, :only => [:index, :show]

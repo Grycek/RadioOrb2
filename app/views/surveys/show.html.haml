@@ -1,0 +1,18 @@
+- title "Survey"
+
+%p
+  %strong Question:
+  = @survey.question
+  
+%table
+  %tr
+    %th Answer
+    %th
+  - @answers.each do |answer|
+    %tr
+      %td=answer.answer
+
+%p
+  = link_to "Destroy", @survey, :confirm => 'Are you sure?', :method => :delete
+  |
+  = link_to "View All", surveys_path

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110123193709) do
+ActiveRecord::Schema.define(:version => 20110124155620) do
 
   create_table "article_comments", :force => true do |t|
     t.integer  "article_id"
@@ -105,6 +105,27 @@ ActiveRecord::Schema.define(:version => 20110123193709) do
     t.string   "artist"
     t.string   "title"
     t.boolean  "is_active"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "survey_answers", :force => true do |t|
+    t.integer  "survey_question_id"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "survey_id"
+  end
+
+  create_table "survey_questions", :force => true do |t|
+    t.integer  "survey_id"
+    t.string   "answer"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "surveys", :force => true do |t|
+    t.string   "question"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

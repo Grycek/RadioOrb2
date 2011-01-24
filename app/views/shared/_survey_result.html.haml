@@ -1,0 +1,8 @@
+%table
+  %tr 
+    %th Answer
+    %th Votes
+  - answers.each do |answer|
+    %tr
+      %td=answer.answer
+      %td=answer.survey_answers.length

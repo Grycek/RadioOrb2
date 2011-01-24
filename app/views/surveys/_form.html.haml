@@ -1,0 +1,12 @@
+= form_for survey do |f|
+  = f.error_messages
+  %p
+    = f.label :question
+    %br
+    = f.text_field :question
+  %p
+    Answers
+    %br
+    = text_area "answers", "list"
+  %p
+    = f.submit
