@@ -1,8 +1,8 @@
 -if Survey.last_survey
   %h2
     Survey
--if Survey.last_survey and (not current_user.has_answered_for_last_survey)
-  =render :partial => 'shared/survey_vote', :locals => {:survey => Survey.last_survey, :answers => Survey.last_survey.survey_questions}
   
--if Survey.last_survey and current_user.has_answered_for_last_survey
+-if Survey.last_survey and current_user and current_user.has_answered_for_last_survey
   =render :partial => 'shared/survey_result', :locals => {:survey => Survey.last_survey, :answers => Survey.last_survey.survey_questions}
+-else
+  =render :partial => 'shared/survey_vote', :locals => {:survey => Survey.last_survey, :answers => Survey.last_survey.survey_questions}
