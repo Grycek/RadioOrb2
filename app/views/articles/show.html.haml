@@ -15,4 +15,6 @@
 
 %hr  
 %strong Comments
+= will_paginate @comments
 = render :partial => "article_comments/comment", :locals => { :article => @article, :comments => @comments}
+

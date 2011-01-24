@@ -6,6 +6,8 @@ class BroadcastPlaylistsController < ApplicationController
     @broadcast_playlists = @broadcast.broadcast_playlists
     @broadcast_playlist  = @broadcast_playlists.find(params[:id])
     @comments            = @broadcast_playlist.comments
+    @comments            = @comments.order('created_at')
+    @comments            = @comments.paginate(:page => params[:page], :per_page => 10)
   end
 
   def new

@@ -10,5 +10,6 @@
       %td
         %tr= link_to "More", article_path(article)
         %tr= article.user.email
-        %tr= article.start_date
+        %tr= article.start_date        
+= will_paginate @articles
 

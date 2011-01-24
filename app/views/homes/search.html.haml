@@ -1,0 +1,32 @@
+= form_for :search, :as => @search, :html => {:method => :get} do |f|
+  %p
+    = f.label :search
+    = f.text_field :title_contains
+    = f.submit 
+    
+%hr
+%table
+  %tr
+    %th Articles
+    - @articles.each do |article|
+      %tr
+        %td= link_to article.title, article_path(article)
+= will_paginate @articles
+%hr    
+%table
+  %tr
+    %th Songs
+    - @songs.each do |song|
+      %tr
+        %td= link_to "#{song.artist} - #{song.title}", song_path(song)
+= will_paginate @songs
+%hr 
+%table
+  %tr   
+    %th Name
+    %th Date
+    - @playlists.each do |playlist|
+      %tr
+        %td= playlist.broadcast.name
+        %td= link_to playlist.date, broadcast_broadcast_playlist_path(playlist.broadcast, playlist)
+= will_paginate @playlists  

@@ -11,6 +11,8 @@
         =link_to "Głosowanie", new_vote_path
       %td
         =link_to "Wyniki", results_path
+      %td
+        =link_to "Search", search_homes_path
       - if current_user and current_user.is_presenter
         %td
           =link_to "Panel prezentera", presenters_path

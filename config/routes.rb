@@ -24,6 +24,11 @@ Projekt2::Application.routes.draw do
   
   resources :admin_panels, :only => [:index]
   devise_for :users
+  resources :homes, :only => [:index] do
+      collection do
+          get 'search'
+      end
+  end
   root :to => "homes#index"
 
   # The priority is based upon order of creation:

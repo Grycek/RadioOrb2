@@ -4,12 +4,13 @@ class ArticlesController < ApplicationController
   before_filter :authenticate_author, :only => [:edit, :update, :destroy]
   def index
     @articles = Article.where("start_date < ? AND end_date > ?", Time.now, Time.now).order("start_date DESC")
+    @articles = @articles.paginate(:page => params[:page], :per_page => 10)
     #find :all , :conditions => {:start => (from..to) }, :order => "created_at"
   end
 
   def show
     @article  = Article.find(params[:id])
-    @comments = @article.comments
+    @comments = @article.comments.paginate(:page => params[:page], :per_page => 10)
   end
 
   def new
