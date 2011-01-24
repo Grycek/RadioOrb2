@@ -6,7 +6,8 @@ class SongsController < ApplicationController
   end
 
   def show
-    @song = Song.find(params[:id])
+    @song    = Song.find(params[:id])
+    @results = @song.results.order('chart_id asc')
   end
 
   def new

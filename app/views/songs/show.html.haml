@@ -9,6 +9,17 @@
 %p
   %strong Is Active:
   = @song.is_active
+  
+%table
+  %tr
+    %th Chart
+    %th Position
+    %th Votes
+  - @results.each do |result|
+    %tr
+      %td= result.chart.number
+      %td= result.position
+      %td= result.nb_of_votes
 
 %p
   = link_to "Edit", edit_song_path(@song)

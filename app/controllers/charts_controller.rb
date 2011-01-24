@@ -15,7 +15,7 @@ class ChartsController < ApplicationController
   def create
     last_chart = Chart.last_chart
     if last_chart != nil
-        count_votes(last_chart)
+        (flash[:error] = "Counting votes error"; redirect_to charts_path; return false) if not count_votes(last_chart)
     end
     @chart = Chart.new(params[:chart])
     if @chart.save
@@ -57,11 +57,29 @@ class ChartsController < ApplicationController
         result      = chart.results.new(:song_id => song.id, :nb_of_votes => nb_of_votes)
         results << result
     end
-    results.sort_by {|res|   Song.find(res.song_id).artist }
-    results.sort_by {|res| - res.nb_of_votes}
-    results.each_with_index {|res, index| res.position = (index+1)}
-    #TODO - tutaj zrobic sprawdzanie poprawnosci i usuwanie w przypadku bledu
-    results.each {|res| res.save}
+    results = results.sort_by {|res|   Song.find(res.song_id).artist }
+    results = results.sort_by {|res|   res.nb_of_votes}
+    results = results.reverse
+    #Podliczanie wynikow - przypisywanie pozycji
+    results[0].position = 1 if results[0] != nil
+    position = 1
+    ties     = 0
+    for i in 1..(results.length-1)
+      if results[i-1].nb_of_votes > results[i].nb_of_votes
+        results[i].position = position + ties + 1
+        position += 1 + ties
+        ties = 0
+      else
+        results[i].position = position
+        ties += 1
+      end
+    end
+    ########
+    #results.each_with_index {|res, index| puts res.song_id, res.nb_of_votes ; res.position = (index+1)}
+    for res in results
+        #if error happend - delete results
+        (results.each {|res| res.delete}; return false) if not res.save
+    end
     return true
   end
 end
