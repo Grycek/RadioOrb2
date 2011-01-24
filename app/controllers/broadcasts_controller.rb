@@ -2,7 +2,12 @@ class BroadcastsController < ApplicationController
   before_filter :authenticate_presenter, :only => [:edit, :update]
   
   def index
-    @broadcasts = Broadcast.order('name').find_all_by_is_active(true)
+    #@broadcasts = Broadcast.find_all_by_is_active(true)
+    @broadcasts = Broadcast.where(:is_active => true)
+    @days = []
+    for i in 0..6
+      @days << @broadcasts.where(:day => i).order('hour_start asc')
+    end
   end
 
   def show

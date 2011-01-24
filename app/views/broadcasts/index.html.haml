@@ -1,8 +1,12 @@
 - title "Broadcasts"
 
-%table
-  %tr
-    %th Name
-  - for broadcast in @broadcasts
-    %tr
-      %td= link_to broadcast.name, broadcast
+#container
+  - for i in 0..6
+    #broadcast-container
+      %table
+        %tr
+        %th=number_to_day_name(i)
+        - for broadcast in @days[i]
+          %tr
+            %td= link_to broadcast.name, broadcast
+  %div.clearer
