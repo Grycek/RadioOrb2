@@ -15,7 +15,7 @@ Feature: Manage comments
         | Pszczolka Maja |
 
         
-  Scenario: Create comment
+  Scenario: User create comment
       Given a logged in with email "proba@proba.pl"
       Given active broadcast called "Probna audycja"
       Given playlist asigned to broadcast with date "2011-01-12 21:45:00"

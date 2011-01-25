@@ -47,6 +47,10 @@ class SurveysController < ApplicationController
   end
   
   def vote
+      if params[:survey_question] == nil or params[:survey_question][:answer] == nil
+        redirect_to root_path
+        return
+      end
       answer = current_user.survey_answers.new(:survey_question_id => params[:survey_question][:answer], :survey_id => Survey.last_survey.id)
       if answer.save
         flash[:notice] = "Success"

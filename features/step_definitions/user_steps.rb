@@ -98,3 +98,14 @@ Given /^comment asigned to article and user(?: with content "([^"]*)")?$/ do |co
   end
   @article_comment  = Factory.create(:article_comment, :article_id => @article.id, :comment_id => @comment.id)
 end
+
+###########################
+
+Given /^survey with question "([^"]*)" and answers:$/ do |question, table|
+  answers = table.raw.flatten.collect()
+  @survey = Factory.create(:survey, :question => question)
+  @survey_answers = []
+  for ans in answers
+    @survey_answers << Factory.create(:survey_question, :answer => ans, :survey_id => @survey.id)
+  end
+end

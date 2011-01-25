@@ -61,3 +61,13 @@ Factory.define :article_comment do |t|
     t.article_id Factory.build(:article)
     t.comment_id Factory.build(:comment)
 end
+
+
+Factory.define :survey do |t|
+    t.question "Random question"
+end
+
+Factory.define :survey_question do |t|
+    t.sequence(:answer) { |n| "Answer #{n}" }
+    t.survey Factory.build(:survey)
+end
