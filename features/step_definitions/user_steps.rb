@@ -109,3 +109,17 @@ Given /^survey with question "([^"]*)" and answers:$/ do |question, table|
     @survey_answers << Factory.create(:survey_question, :answer => ans, :survey_id => @survey.id)
   end
 end
+
+###########################
+Given /^new chart$/ do
+  @chart = Factory.create(:chart)
+end
+
+Given /^(\d*) active songs$/ do |number|
+  @songs = (1..number.to_i).map {|i| Factory.create(:song)}
+end
+
+Then /^I vote for (\d*) (?:song|songs)$/ do |number|
+  @songs[0..number.to_i].each {|song| check(song.id.to_s)}
+end
+

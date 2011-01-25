@@ -10,7 +10,8 @@ class ArticlesController < ApplicationController
 
   def show
     @article  = Article.find(params[:id])
-    @comments = @article.comments.paginate(:page => params[:page], :per_page => 10)
+    @comments = @article.comments.order('created_at desc')
+    @comments = @comments.paginate(:page => params[:page], :per_page => 10)
   end
 
   def new

@@ -71,3 +71,15 @@ Factory.define :survey_question do |t|
     t.sequence(:answer) { |n| "Answer #{n}" }
     t.survey Factory.build(:survey)
 end
+
+Factory.define :chart do |t|
+    t.number 42
+    t.description "Probny opis"
+    t.date Time.now
+end
+
+Factory.define :song do |t|
+    t.sequence(:artist) { |n| "Artist#{n}" }
+    t.sequence(:title) { |n| "Title#{n}" }
+    t.is_active true
+end
