@@ -1,24 +1,23 @@
 %center
-  %table
-    %tr
-      %td
-        =link_to "Strona główna", root_path
-      %td
-        =link_to "Audycje", broadcasts_path
-      %td
-        =link_to "Artykuły", articles_path
-      %td
-        =link_to "Głosowanie", new_vote_path
-      %td
-        =link_to "Wyniki", results_path
-      %td
-        =link_to "Search", search_homes_path
-      - if current_user and current_user.is_presenter
+  #menu-table
+    %table
+      %tr
         %td
-          =link_to "Panel prezentera", presenters_path
-      - if current_user and current_user.is_admin
+          =link_to "Main page", root_path
         %td
-          =link_to "Panel admina", admin_panels_path
-          =#link_to "Panel admina", rails_admin_dashboard_path
-      %td
-        =#link_to "Panel administratora", admin_root_path
+          =link_to "Radio shows", broadcasts_path
+        %td
+          =link_to "Articles", articles_path
+        %td
+          =link_to "Voting", new_vote_path
+        %td
+          =link_to "Charts results", results_path
+        %td
+          =link_to "Search", search_homes_path
+        - if current_user and current_user.is_presenter
+          %td
+            =link_to "Presenter panel", presenters_path
+        - if current_user and current_user.is_admin
+          %td
+            =link_to "Admin panel", admin_panels_path
+            =#link_to "Panel admina", rails_admin_dashboard_path

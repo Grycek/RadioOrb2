@@ -20,6 +20,11 @@ a {
   padding: 20px 40px;
   border: solid 1px black;
   margin-top: 20px; }
+  #menu a {
+    color: black; }
+  #menu #menu-table td {
+    border: 1px solid black;
+    background: #4b7399; }
 
 #text {
   width: 75%;

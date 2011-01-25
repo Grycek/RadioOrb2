@@ -26,6 +26,8 @@ Feature: Manage articles
     And I fill in "article_title" with "Artykul probny"
     And I fill in "article_shortcontent" with "Probny skrot"
     And I fill in "article_content" with "Probna tresc"
+    And I fill in "article_start_date" with "01/23/2011"
+    And I fill in "article_end_date" with "01/26/2011"
     And I press "article_submit"
     And I should see "Successfully created article"
 

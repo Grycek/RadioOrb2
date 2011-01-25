@@ -28,6 +28,23 @@ Feature: Chart
       When I am on the new vote page
       Then I vote for 11 songs
       And I press "Vote"
-      Then I should be on the new vote page
       And I should see "Too many votes"
+      Then I vote for 1 songs
+      And I press "Vote"
+      And I should see "Thank you"
     
+  Scenario: User can vote on the new chart
+      Given a logged in with email "proba@proba.pl"
+      Given new chart
+      Given 11 active songs
+      When I am on the new vote page
+      Then I vote for 1 songs
+      And I press "Vote"
+      And I should see "Thank you"
+      Given new chart
+      When I am on the new vote page
+      Then I vote for 1 songs
+      And I press "Vote"
+      And I should see "Thank you"
+  
+  #TODO: zamykanie notowania i zwiekszanie sie liczby oddanych glosow

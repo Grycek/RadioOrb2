@@ -9,7 +9,7 @@ Feature: Manage presenters
     Given a logged in with email "proba@proba.pl"
     Given asigned user to broadcast
     When I am on the home page
-    And I follow "Audycje"
+    When I am on the broadcasts page
     And I follow "Probna audycja"
     Then I should see "Probna audycja"
     Then I should see "proba@proba.pl"
@@ -57,7 +57,7 @@ Feature: Manage presenters
     Given a logged in with email "proba@proba.pl"
     Given asigned user to broadcast 
     When I am on the home page 
-    Then I should see "Panel prezentera"  
-    And I follow "Panel prezentera"
-    Then I should see "Articles"  
+    When I am on the presenters page
+    Then I should see "Articles"
+    Then I should see "New Article"  
     Then I should see "Broadcasts"  

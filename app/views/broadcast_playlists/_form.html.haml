@@ -3,7 +3,8 @@
   %p
     = f.label :date
     %br
-    = f.datetime_select :date
+    =# f.datetime_select :date
+    = f.text_field :date, :class => "date_pick"
   %p
     = f.label :description
     %br

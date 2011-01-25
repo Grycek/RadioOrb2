@@ -5,5 +5,5 @@ class Broadcast < ActiveRecord::Base
     has_many :presenters
     has_many :users, :through => :presenters
     
-    has_many :broadcast_playlists
+    has_many :broadcast_playlists, :dependent => :destroy
 end

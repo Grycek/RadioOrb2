@@ -2,8 +2,13 @@
 
 %p
   %strong Title:
+  %br
   = @article.title
-
+%p
+  %strong Shortcontent:
+  %br
+  = raw(@article.shortcontent)
+  
 %p
   %strong Content:
   %br
