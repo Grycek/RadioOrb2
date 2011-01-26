@@ -1,0 +1,12 @@
+
+pl:
+  hello: "Witaj świecie!"
+  menu:
+    main_page:       "Strona główna"
+    radio_shows:     "Audycje"
+    articles:        "Artykuły"
+    voting:          "Głosowanie"
+    chart_results:   "Wyniki listy przebojów"
+    search:          "Szukaj"
+    presenter_panel: "Panel prezentera"
+    admin_panel:     "Panel administratora"

@@ -3,21 +3,23 @@
     %table
       %tr
         %td
-          =link_to "Main page", root_path
+          =link_to (I18n.t "menu.main_page"), root_path
         %td
-          =link_to "Radio shows", broadcasts_path
+          =link_to (I18n.t "menu.radio_shows"), broadcasts_path
         %td
-          =link_to "Articles", articles_path
+          =link_to (I18n.t "menu.articles"), articles_path
         %td
-          =link_to "Voting", new_vote_path
+          =link_to (I18n.t "menu.voting"), new_vote_path
         %td
-          =link_to "Charts results", results_path
+          =link_to (I18n.t "menu.chart_results"), results_path
         %td
-          =link_to "Search", search_homes_path
+          =link_to (I18n.t "menu.search"), search_homes_path
         - if current_user and current_user.is_presenter
           %td
-            =link_to "Presenter panel", presenters_path
+            =link_to (I18n.t "menu.presenter_panel"), presenters_path
         - if current_user and current_user.is_admin
           %td
-            =link_to "Admin panel", admin_panels_path
+            =link_to (I18n.t "menu.admin_panel"), admin_panels_path
             =#link_to "Panel admina", rails_admin_dashboard_path
+        %td
+          = link_to "Player", "http://www.radioorbit.pl/okladki_player.htm"

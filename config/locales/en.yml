@@ -3,3 +3,12 @@
 
 en:
   hello: "Hello world"
+  menu:
+    main_page:       "Main page"
+    radio_shows:     "Radio shows"
+    articles:        "Articles"
+    voting:          "Voting"
+    chart_results:   "Chart results"
+    search:          "Search"
+    presenter_panel: "Presenter panel"
+    admin_panel:     "Admin panel"
