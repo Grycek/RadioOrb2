@@ -12,3 +12,14 @@ en:
     search:          "Search"
     presenter_panel: "Presenter panel"
     admin_panel:     "Admin panel"
+    
+  Monday:          "Monday"
+  Tuesday:         "Tuesday"
+  Wednesday:       "Wednesday"
+  Thursday:        "Thursday"
+  Friday:          "Friday"
+  Saturday:        "Saturday"
+  Sunday:          "Sunday"
+
+  Broadcasts:      "Broadcasts"
+  Broadcast:       "Broadcast"

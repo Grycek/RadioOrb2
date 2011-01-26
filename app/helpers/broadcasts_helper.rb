@@ -8,6 +8,6 @@ module BroadcastsHelper
   
   def number_to_day_name(number)
      w = Date.new(1,1,3 + number)
-     return w.strftime('%A')
+     return I18n.t w.strftime('%A')
   end
 end

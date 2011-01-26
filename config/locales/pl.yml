@@ -10,3 +10,14 @@ pl:
     search:          "Szukaj"
     presenter_panel: "Panel prezentera"
     admin_panel:     "Panel administratora"
+  
+  Monday:          "Poniedziałek"
+  Tuesday:         "Wtorek"
+  Wednesday:       "Środa"
+  Thursday:        "Czwartek"
+  Friday:          "Piątek"
+  Saturday:        "Sobota"
+  Sunday:          "Niedziela"
+  
+  Broadcasts:      "Audycje"
+  Broadcast:       "Audycja"
